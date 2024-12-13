@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p title="The Last Chapter">
+        This is a sample of some <b>HTML you might<br>have</b> in your document.
+    </p>
+
+    <button onclick="printAttribute()">Print Attribute</button>
+
+    <script>
+        const ptr=document.querySelector("br");
+        const pElement=ptr.closest("p");
+        const titleValue=pElement.getAttribute("title");
+
+        function printAttribute(){
+            console.log(titleValue);
+        }
+    </script>
+</body>
+</html>

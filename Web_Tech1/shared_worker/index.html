@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Worker Example</title>
+</head>
+<body>
+
+<h2>Shared Worker Example</h2>
+<input type="text" id="message" placeholder="Type a message">
+<button onclick="sendMessage()">Send Message</button>
+<div id="output"></div>
+
+<script>
+    let workerPort;
+
+    // Initialize the Shared Worker
+    const sharedWorker = new SharedWorker('shared-worker.js');
+
+    // Listen for messages from the Shared Worker
+    sharedWorker.port.onmessage = (event) => {
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML += `<p>Received: ${event.data}</p>`;
+    };
+
+    function sendMessage() {
+        const message = document.getElementById('message').value;
+        if (message) {
+            console.log(sharedWorker.port);
+            sharedWorker.port.postMessage(message);
+        }
+    }
+
+    //function startListening() {
+     //   sharedWorker.port.start();
+      //  document.getElementById('output').innerHTML += '<p>Started listening to the shared worker.</p>';
+    //}
+</script>
+
+</body>
+</html>

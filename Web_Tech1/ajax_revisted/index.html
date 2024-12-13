@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Example</title>
+</head>
+<body>
+    <h1>AJAX Example</h1>
+    <button onclick="waitData()">Fetch Data using AJAX</button><br><br>
+    <button onclick="doSomething()">Check Synchronous</button><br><br>
+    <div id="container"></div>
+
+    <script>
+        function loadData() {
+            let states = [
+                "UNSENT (0): Open has not been called yet.",
+                "OPENED (1): Open has been called.",
+                "HEADERS_RECEIVED (2): Headers have been received.",
+                "LOADING (3): Response body is being received.",
+                "DONE (4): Request is complete."
+                ];
+
+            const xhr = new XMLHttpRequest();
+            console.log(`Current state: ${xhr.readyState} - ${states[xhr.readyState] || "Unknown state"}`); //Logging readyState value
+            xhr.open('GET', 'data.json', true);
+            console.log(`Current state: ${xhr.readyState} - ${states[xhr.readyState] || "Unknown state"}`); //Logging readyState value
+            
+            xhr.onreadystatechange= function () {
+                console.log(`Current state: ${xhr.readyState} - ${states[xhr.readyState] || "Unknown state"}`);
+                if (xhr.status === 200 && xhr.readyState === 4) {
+                    var para=document.createElement('p');
+                    para.innerText=xhr.responseText;
+
+                    document.getElementById("container").appendChild(para);
+                }
+            };
+
+            xhr.send();
+        }
+
+        function waitData(){
+            setTimeout(loadData,2000);
+        }
+
+        function doSomething(){
+            console.log("I am working");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xmi version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="rpcRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="method" type="xs:string"/>
+                <xs:element name="parameters">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="2" name="parameter">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="name" type="xs:string"/>
+                                        <xs:element name="value" type="xs:positiveInteger"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

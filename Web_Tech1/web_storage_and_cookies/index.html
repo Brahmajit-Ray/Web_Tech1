@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage, Session Storage, and Cookies Example</title>
+</head>
+<body>
+
+<h2>Web Storage, Session Storage, and Cookies Example</h2>
+
+<label for="storageData">Enter some data:</label>
+<input type="text" id="storageData" placeholder="Enter data here">
+<br><br>
+
+<button onclick="saveToStorage()">Save to Local Storage</button>
+<button onclick="saveToSessionStorage()">Save to Session Storage</button>
+<button onclick="saveToCookie()">Save to Cookie</button>
+<br><br>
+
+<button onclick="retrieveFromStorage()">Retrieve from Local Storage</button>
+<button onclick="retrieveFromSessionStorage()">Retrieve from Session Storage</button>
+<button onclick="retrieveFromCookie()">Retrieve from Cookie</button>
+
+<p id="output"></p>
+
+<script>
+// Save data to Web Storage (localStorage)
+function saveToStorage() {
+    var data = document.getElementById('storageData').value;
+    if (data) {
+        localStorage.setItem('myData', data); // Save data to localStorage
+        document.getElementById('output').innerText = 'Data saved to Web Storage!';
+    } else {
+        document.getElementById('output').innerText = 'Please enter data to save.';
+    }
+}
+
+// Save data to Session Storage
+function saveToSessionStorage() {
+    var data = document.getElementById('storageData').value;
+    if (data) {
+        sessionStorage.setItem('mySessionData', data); // Save data to sessionStorage
+        document.getElementById('output').innerText = 'Data saved to Session Storage!';
+    } else {
+        document.getElementById('output').innerText = 'Please enter data to save.';
+    }
+}
+
+// Save data to Cookie
+function saveToCookie() {
+    var data = document.getElementById('storageData').value;
+    if (data) {
+        document.cookie = "myCookie=" + encodeURIComponent(data) + "; path=/; max-age=3600"; // Save data to cookie
+        document.getElementById('output').innerText = 'Data saved to Cookie!';
+    } else {
+        document.getElementById('output').innerText = 'Please enter data to save.';
+    }
+}
+
+// Retrieve data from Web Storage (localStorage)
+function retrieveFromStorage() {
+    var data = localStorage.getItem('myData');
+    if (data) {
+        document.getElementById('output').innerText = 'Data from Web Storage: ' + data;
+    } else {
+        document.getElementById('output').innerText = 'No data found in Web Storage.';
+    }
+}
+
+// Retrieve data from Session Storage
+function retrieveFromSessionStorage() {
+    var data = sessionStorage.getItem('mySessionData');
+    if (data) {
+        document.getElementById('output').innerText = 'Data from Session Storage: ' + data;
+    } else {
+        document.getElementById('output').innerText = 'No data found in Session Storage.';
+    }
+}
+
+// Retrieve data from Cookie
+function retrieveFromCookie() {
+    var name = "myCookie=";
+    var decodedCookies = decodeURIComponent(document.cookie);
+    var ca = decodedCookies.split(';');
+    var cookieValue = "";
+    
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            cookieValue = c.substring(name.length, c.length);
+        }
+    }
+
+    if (cookieValue) {
+        document.getElementById('output').innerText = 'Data from Cookie: ' + cookieValue;
+    } else {
+        document.getElementById('output').innerText = 'No data found in Cookie.';
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form with Hidden Input</title>
+    <script>
+        // Function to set the current time in the hidden input field
+        function setCurrentTime() {
+            const currentTime = new Date().toLocaleString(); // Get the current time
+            document.getElementById('hiddenTime').value = currentTime; // Set it in the hidden input
+        }
+
+        // Function to display the submitted time on the page
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent the form from refreshing the page
+            const time = document.getElementById('hiddenTime').value;
+            const name=document.getElementById('name').value;
+            document.getElementById('submittedTime').textContent = `Submitted Time: ${time}`;
+            document.getElementById('submittedName').textContent = `Submitted Name: ${name}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Form with Hidden Current Time</h1>
+    <form onsubmit="handleSubmit(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="username"><br><br>
+
+        <!-- Hidden Field -->
+        <input type="hidden" id="hiddenTime" name="hiddenTime">
+        
+        <!-- Submit Button -->
+        <button type="submit" onclick="setCurrentTime()">Submit</button>
+    </form>
+    
+    <!-- Display Submitted Time -->
+    <div id="submittedName" style="margin-top: 20px; font-weight: bold;"></div>
+    <div id="submittedTime" style="margin-top: 20px; font-weight: bold;"></div>
+</body>
+</html>

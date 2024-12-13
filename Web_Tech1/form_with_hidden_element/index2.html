@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form with Hidden Input</title>
+    <script>
+        // Function to set the current time in the hidden input field
+        function setCurrentTime() {
+            const currentTime = new Date().toLocaleString(); // Get the current time
+            document.getElementById('hiddenTime').value = currentTime; // Set it in the hidden input
+        }
+
+        // Function to handle form submission
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent the form from refreshing the page
+            
+            // Get the current input values
+            const time = document.getElementById('hiddenTime').value;
+            const name = document.getElementById('name').value;
+
+            // Create a new entry and append it to the submissions list
+            const submissionList = document.getElementById('submissions');
+            const newEntry = document.createElement('div');
+            newEntry.textContent = `Submitted Name: ${name}, Submitted Time: ${time}`;
+            submissionList.append(newEntry);
+
+            // Clear the name input field for a new entry
+            document.getElementById('name').value = '';
+        }
+    </script>
+</head>
+<body>
+    <h1>Form with Hidden Current Time</h1>
+    <form onsubmit="handleSubmit(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="username" required><br><br>
+
+        <!-- Hidden Field -->
+        <input type="hidden" id="hiddenTime" name="hiddenTime">
+        
+        <!-- Submit Button -->
+        <button type="submit" onclick="setCurrentTime()">Submit</button>
+    </form>
+    
+    <!-- Display Submissions -->
+    <h2>Submissions:</h2>
+    <div id="submissions" style="margin-top: 20px; font-weight: bold;"></div>
+</body>
+</html>

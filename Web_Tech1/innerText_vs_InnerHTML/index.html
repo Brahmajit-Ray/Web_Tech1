@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    <h1>Welcome to InnerText vs InnerHTML</h1><br>
+    <h2 id="modify_text">This is the text we will be modifying</h2><br>
+    <button onclick="modifyInnerText()">Modify InnerText</button>
+    <button onclick="modifyInnerHTML()">Modify InnerHTML</button>
+
+    <script>
+        function modifyInnerHTML(){
+            let html=document.getElementById("modify_text").innerHTML;
+            console.log(html);
+            document.getElementById("modify_text").innerHTML="<h6><u>Hello World</u></h6>";
+        }
+
+        function modifyInnerText(){
+            let text=document.getElementById("modify_text").innerText;
+            console.log(text);
+            document.getElementById("modify_text").innerText="Hello World";
+        }
+    </script>
+</body>
+</html>

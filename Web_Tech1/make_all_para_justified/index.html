@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justified</title>
+
+    <style>
+        .modified{
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Paragraph Justify</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quidem atque maxime expedita repudiandae beatae distinctio incidunt nemo aliquid? Repellat praesentium nostrum iure recusandae tempore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut vel quis, dolores atque doloremque sint soluta beatae esse dicta officiis iure fugit ipsam, quasi ad aspernatur mollitia at nulla officia et numquam repellat obcaecati cum reprehenderit pariatur? Maxime eaque quaerat asperiores quod maiores debitis hic temporibus! Perferendis tempore reprehenderit totam!</p>
+    <h2>Some Sense</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem minima magni cupiditate provident nobis sint! Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum perspiciatis commodi modi voluptas odit quisquam architecto nemo explicabo excepturi quasi vitae debitis pariatur quibusdam officiis provident assumenda ut, eos sint, sit culpa voluptatibus porro fugiat iure. Veritatis optio laborum quos enim tempore beatae architecto aliquid consequuntur cumque, culpa tempora saepe?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero laboriosam quasi quam, repellendus necessitatibus Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti voluptas, autem laborum consequatur asperiores reprehenderit vel est, similique, molestias corrupti natus aspernatur fuga suscipit doloribus non maxime assumenda vero a animi voluptatibus iusto libero. Reprehenderit, a eum? Ipsa doloremque asperiores dolorum repellendus consequuntur laudantium vel quas nisi adipisci! Fugiat, placeat magnam assumenda nisi nobis ea, nam, veniam dolores iusto necessitatibus consequatur doloremque ut aut. Accusamus velit ipsa officia architecto quaerat? </p>
+    <br>
+    <button onclick="justify()">Justify Paragraphs</button>
+
+    <script>
+        function justify(){
+            let para_list=document.getElementsByTagName("p");
+            for(let para of para_list){
+                    para.style.textAlign='justify';
+                    para.style.color='blue';
+                    para.classList.add('modified');
+            }
+        }
+    </script>
+</body>
+</html>

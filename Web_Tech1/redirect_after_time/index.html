@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>Redirect to logout.html if inactive for 10seconds</p>
+
+    <script>
+        let idle=0;
+        const limit=10;
+
+        function resetIdleTimer(){
+            idle=0;
+        }
+
+        function redirect(){
+            idle++;
+            if(idle>=limit){
+                window.location.href="logout.html";
+            }
+        }
+
+        function startIdleTimer(){
+            setInterval(redirect,1000);
+        }
+
+        document.addEventListener("mousemove",resetIdleTimer);
+        document.addEventListener("keydown",resetIdleTimer);
+        document.addEventListener("click",resetIdleTimer);
+        document.addEventListener("scroll",resetIdleTimer);
+
+        window.onload=startIdleTimer;
+    </script>
+</body>
+</html>

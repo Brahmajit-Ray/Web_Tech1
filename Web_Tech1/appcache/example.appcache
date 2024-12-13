@@ -1,0 +1,10 @@
+CACHE MANIFEST
+#Version 1.0
+
+#Files to cache
+index.html
+script.js
+
+NETWORK:*
+
+FALLBACK://offline.html

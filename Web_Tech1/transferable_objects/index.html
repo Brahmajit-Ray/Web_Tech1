@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transferable Objects Example</title>
+</head>
+<body>
+
+<h2>Transferable Objects Example</h2>
+<button onclick="sendData()">Send Data to Worker</button>
+<p id="output"></p>
+
+<script>
+    // Create a new Web Worker
+    const worker = new Worker('worker.js');
+
+    // Listen for messages from the worker
+    worker.onmessage = (event) => {
+        document.getElementById('output').innerText = `Received from worker: ${event.data}`;
+    };
+
+    function sendData() {
+        // Create an ArrayBuffer
+        const buffer = new ArrayBuffer(16); // 16 bytes
+        const view = new Uint8Array(buffer);
+        
+        // Fill it with some data
+        for (let i = 0; i < view.length; i++) {
+            view[i] = i * 2;
+        }
+        
+        console.log('Main thread: Sending buffer to worker', view);
+
+        // Transfer ownership of the buffer to the worker
+        worker.postMessage(buffer, [buffer]);
+
+        // Check buffer after transfer
+        console.log('Main thread: Buffer after transfer', buffer);
+    }
+</script>
+
+</body>
+</html>

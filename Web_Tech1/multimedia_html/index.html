@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia, SVG, and Canvas Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+        svg {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Multimedia, SVG, and Canvas Demo</h1>
+
+    <!-- Multimedia Section -->
+    <h2>Multimedia: Video and Audio</h2>
+    <video controls width="640" height="360">
+        <source src="sample-video.mp4" type="video/mp4">
+        <source src="sample-video.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+    </video>
+    <br>
+    <audio controls>
+        <source src="sample-audio.mp3" type="audio/mpeg">
+        <source src="sample-audio.ogg" type="audio/ogg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <!-- SVG Section -->
+    <h2>SVG Example</h2>
+    <svg width="300" height="200">
+        <rect x="50" y="50" width="200" height="100" fill="lightblue" stroke="black" stroke-width="3" />
+        <circle cx="150" cy="100" r="40" fill="yellow" stroke="black" stroke-width="3" />
+        <text x="150" y="105" font-size="18" text-anchor="middle" fill="black">Hello SVG</text>
+    </svg>
+
+    <!-- Canvas Section -->
+    <h2>Canvas Drawing</h2>
+    <canvas id="myCanvas" width="400" height="200"></canvas>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Draw a rectangle
+        ctx.fillStyle = 'lightgreen';
+        ctx.fillRect(50, 50, 150, 100);
+
+        // Draw a circle
+        ctx.beginPath();
+        ctx.arc(250, 100, 50, 0, Math.PI * 2, false);
+        ctx.fillStyle = 'pink';
+        ctx.fill();
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Draw some text
+        ctx.font = '20px Arial';
+        ctx.fillStyle = 'blue';
+        ctx.fillText('Canvas Drawing', 120, 30);
+    </script>
+</body>
+</html>

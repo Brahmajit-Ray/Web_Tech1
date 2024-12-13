@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form with All Input Types</title>
+</head>
+<body>
+    <h1>HTML Form with All Input Types</h1>
+    <form action="/submit" method="post">
+        <fieldset>
+            <legend>Basic Inputs</legend>
+            <label for="text">Text:</label>
+            <input type="text" id="text" name="text"><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+
+            <label for="tel">Telephone:</label>
+            <input type="tel" id="tel" name="tel"><br><br>
+
+            <label for="url">URL:</label>
+            <input type="url" id="url" name="url"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Numeric Inputs</legend>
+            <label for="number">Number:</label>
+            <input type="number" id="number" name="number" min="1" max="10"><br><br>
+
+            <label for="range">Range:</label>
+            <input type="range" id="range" name="range" min="0" max="100"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Date and Time Inputs</legend>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date"><br><br>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time"><br><br>
+
+            <label for="datetime">Date and Time (Local):</label>
+            <input type="datetime-local" id="datetime" name="datetime"><br><br>
+
+            <label for="month">Month:</label>
+            <input type="month" id="month" name="month"><br><br>
+
+            <label for="week">Week:</label>
+            <input type="week" id="week" name="week"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>File Inputs</legend>
+            <label for="file">File:</label>
+            <input type="file" id="file" name="file"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Choices</legend>
+            <label for="color">Color:</label>
+            <input type="color" id="color" name="color"><br><br>
+
+            <label for="checkbox">Checkbox:</label>
+            <input type="checkbox" id="checkbox" name="checkbox"> Check me<br><br>
+
+            <label>Radio Buttons:</label><br>
+            <input type="radio" id="radio1" name="radio" value="option1">
+            <label for="radio1">Option 1</label><br>
+            <input type="radio" id="radio2" name="radio" value="option2">
+            <label for="radio2">Option 2</label><br><br>
+
+            <label for="select">Select:</label>
+            <select id="select" name="select">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Text Area</legend>
+            <label for="textarea">Message:</label><br>
+            <textarea id="textarea" name="textarea" rows="4" cols="50"></textarea><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Hidden Input</legend>
+            <input type="hidden" id="hidden" name="hidden" value="hiddenValue">
+        </fieldset>
+
+        <fieldset>
+            <legend>Buttons</legend>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </fieldset>
+    </form>
+</body>
+</html>

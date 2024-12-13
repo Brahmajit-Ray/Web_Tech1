@@ -1,0 +1,9 @@
+<?xmi version="1.0" encoding="UTF-8"?>
+<rpcResponse>
+    <method>divideNumbers</method>
+    <status>failure</status>
+    <error>
+        <code>1001</code>
+        <message>Divide by 0 is illegal</message>
+    </error>
+</rpcResponse>

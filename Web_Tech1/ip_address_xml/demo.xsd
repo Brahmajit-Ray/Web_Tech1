@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="ip">
+    <xs:complexType>
+      <xs:sequence>
+      
+        <xs:element name="address">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="([01]{8}\.){3}[01]{8}"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

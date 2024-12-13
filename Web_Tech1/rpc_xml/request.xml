@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rpcRequest>
+    <method>addNumbers</method>
+    <parameters>
+        <parameter>
+            <name>num1</name>
+            <value>5</value>
+        </parameter>
+
+        <parameter>
+            <name>num2</name>
+            <value>10</value>
+        </parameter>
+    </parameters>
+</rpcRequest>

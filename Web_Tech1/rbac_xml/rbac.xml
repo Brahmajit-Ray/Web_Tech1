@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rbacSystem>
+    <users>
+        <user>
+            <loginName>john_doe</loginName>
+            <password>securepassword123</password>
+            <roles>
+                <role>admin</role>
+                <role>editor</role>
+            </roles>
+        </user>
+
+        <user>
+            <loginName>jane_smith</loginName>
+            <password>password456</password>
+            <roles>
+                <role>viewer</role>
+            </roles>
+        </user>
+    </users>
+
+    <roles>
+        <role name="admin">
+            <permissions>
+                <permission>read</permission>
+                <permission>write</permission>
+                <permission>delete</permission>
+            </permissions>
+
+        </role>
+
+        <role name="editor">
+            <permissions>
+                <permission>read</permission>
+                <permission>write</permission>
+            </permissions>
+        </role>
+
+        <role name="viewer">
+            <permissions>
+                <permission>read</permission>
+            </permissions>
+        </role>
+    </roles>
+
+</rbacSystem>

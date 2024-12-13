@@ -1,0 +1,8 @@
+<?xmi version="1.0" encoding="UTF-8"?>
+<rpcResponse>
+    <method>addNumbers</method>
+    <status>success</status>
+    <result>
+        <value>15</value>
+    </result>
+</rpcResponse>

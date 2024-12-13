@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All tags</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <h2>Shape of You</h2>
+    <h3><u>Galway Girl</u></h3>
+    <h1>2Step</h1>
+    <button onclick="displayAllTags()">Display All Tags</button>
+
+    <p id="output"></p>
+
+    <script>
+        function displayAllTags(){
+            const list=document.getElementsByTagName("*");
+            const uniques=new Set();
+
+            for (let element of list){
+                uniques.add(element.tagName.toLowerCase());
+            }
+
+            const tags=Array.from(uniques).join(", ");
+            console.log(tags);
+
+            document.getElementById("output").innerText=tags;
+        }       
+    </script>
+</body>
+</html>

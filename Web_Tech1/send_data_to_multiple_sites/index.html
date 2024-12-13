@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Data to Multiple Sites</title>
+    <script>
+        async function sendData() {
+            // Data to be sent
+            const data = {
+                name: "John Doe",
+                email: "john@example.com",
+                message: "Hello, this is a test message!"
+            };
+
+            // List of URLs to send data
+            const urls = [
+                "https://example.com/api/endpoint1",
+                "https://anotherexample.com/api/endpoint2",
+                "https://yetanotherexample.com/api/endpoint3"
+            ];
+
+            // Send data to all URLs
+            const results = await Promise.all(
+                urls.map(async (url) => {
+                    try {
+                        const response = await fetch(url, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(data)
+                        });
+                        return { url, status: response.status, success: true };
+                    } catch (error) {
+                        return { url, success: false, error: error.message };
+                    }
+                })
+            );
+
+            // Log results to the console
+            console.log("Results:", results);
+
+            // Display results on the page
+            document.getElementById("output").innerText = JSON.stringify(results, null, 2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Send Data to Multiple Sites</h1>
+    <button onclick="sendData()">Send Data</button>
+    <pre id="output"></pre>
+</body>
+</html>
